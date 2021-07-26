@@ -41,9 +41,6 @@ const app = express_1.default();
 app.use(express_1.default.json());
 const port = 3000;
 // endpoints
-app.get("/", (req, res) => {
-    res.send("hello world");
-});
 app.get("/tools", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const tools = yield new tool_handler_1.default().get({});
     return {

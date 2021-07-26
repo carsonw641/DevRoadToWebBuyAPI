@@ -18,10 +18,6 @@ app.use(express.json());
 const port: number = 3000;
 
 // endpoints
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
-
 app.get("/tools", async (req, res) => {
   const tools: Tool[] = await new ToolHandler().get({});
 
