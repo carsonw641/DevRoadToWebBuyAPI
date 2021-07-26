@@ -1,20 +1,19 @@
 import mongoose from "mongoose";
-
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const { Schema, model } = mongoose;
 
 const Score = new Schema({
-  name: ObjectId,
+  id: Schema.Types.ObjectId,
+  name: String,
   wuTangName: String,
-  strength: Integer,
-  luck: Integer,
-  Wisdom: Integer,
-  health: Integer,
+  strength: Number,
+  luck: Number,
+  Wisdom: Number,
+  health: Number,
   bonusName: String,
   bonusType: String,
-  bonusValue: Integer
+  bonusValue: Number
 });
 
-const CharacterModel = mongoose.model("Score", Character);
+const CharacterModel = model("Score", Score);
 
 export default CharacterModel;

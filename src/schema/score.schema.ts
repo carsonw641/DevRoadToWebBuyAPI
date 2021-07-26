@@ -1,15 +1,13 @@
 import mongoose from "mongoose";
-
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const { Schema, model } = mongoose;
 
 const Score = new Schema({
-  id: ObjectId,
-  days: Integer,
+  id: Schema.Types.ObjectId,
+  days: Number,
   userName: String,
   date: Date
 });
 
-const ScoreModel = mongoose.model("Score", Score);
+const ScoreModel = model("Score", Score);
 
 export default ScoreModel;

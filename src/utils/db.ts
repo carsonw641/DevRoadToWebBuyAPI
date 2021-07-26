@@ -11,7 +11,7 @@ class DBConnection {
 
   private async initialize(): Promise<void> {
     await mongoose.connect(this.connectionString, {
-      useNewUrlParse: true,
+      useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
       useCreateIndex: true

@@ -1,19 +1,19 @@
-import DBConnection from "../util/db";
+import DBConnection from "../utils/db";
 
 abstract class Handler {
   private dbConnection: DBConnection;
 
   constructor() {
-    this.dbConnection = DBConnection.Instance();
+    this.dbConnection = DBConnection.Instance;
   }
 
-  abstract create(): Promise<any>;
+  abstract create(data: any): Promise<any>;
 
-  abstract update(): Promise<any>;
+  abstract update(data: any): Promise<any>;
 
-  abstract get(): Promise<any>;
+  abstract get(data: any): Promise<any>;
 
-  abstract delete(): Promise<any>;
+  abstract delete(data: any): Promise<any>;
 }
 
 export default Handler;

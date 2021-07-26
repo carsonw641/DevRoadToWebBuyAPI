@@ -1,4 +1,7 @@
+import { Tool } from "./tool";
+
 export interface Character {
+  id: string;
   name: string;
   wuTangName: string;
   strength: number;
@@ -8,5 +11,5 @@ export interface Character {
   bonusName: string;
   bonusType: string;
   bonusValue: number;
-  toolName: string;
+  tool?: Tool;
 }

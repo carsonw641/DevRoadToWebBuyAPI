@@ -1,7 +1,7 @@
-import EventModel from "../schema/event.schema";
+import ToolModel from "../schema/tool.schema";
 import Handler from "./handler";
 
-class EventHandler extends Handler {
+class ToolHandler extends Handler {
   constructor() {
     super();
   }
@@ -9,7 +9,7 @@ class EventHandler extends Handler {
   public async create(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.create(data);
+        const results: any = await ToolModel.create(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -20,7 +20,7 @@ class EventHandler extends Handler {
   public async update(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.updateOne(data);
+        const results: any = await ToolModel.updateOne(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -31,7 +31,7 @@ class EventHandler extends Handler {
   public async get(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.find(data);
+        const results: any = await ToolModel.find(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -42,7 +42,7 @@ class EventHandler extends Handler {
   public async delete(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.deleteOne(data);
+        const results: any = await ToolModel.deleteOne(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -51,4 +51,4 @@ class EventHandler extends Handler {
   }
 }
 
-export default EventHandler;
+export default ToolHandler;

@@ -1,17 +1,16 @@
 import mongoose from "mongoose";
-
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const { Schema, model } = mongoose;
 
 const Tool = new Schema({
+  id: Schema.Types.ObjectId,
   name: String,
   description: String,
-  strengthMod: Integer,
-  wisdomMod: Integer,
-  healthMod: Integer,
-  luckMod: Integer
+  strengthMod: Number,
+  wisdomMod: Number,
+  healthMod: Number,
+  luckMod: Number
 });
 
-const ToolModel = mongoose.model("Tool", Tool);
+const ToolModel = model("Tool", Tool);
 
 export default ToolModel;

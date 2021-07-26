@@ -1,25 +1,23 @@
 import mongoose from "mongoose";
-
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const { Schema, model } = mongoose;
 
 const Event = new Schema({
-  id: Integer,
+  id: Schema.Types.ObjectId,
   name: String,
   initDescription: String,
   successDescription: String,
   failDescription: String,
-  strengthReq: Integer,
-  wisdomReq: Integer,
-  healthReq: Integer,
-  luckReq: Integer,
+  strengthReq: Number,
+  wisdomReq: Number,
+  healthReq: Number,
+  luckReq: Number,
   successType: String,
-  successValue: Integer,
-  failType: Integer,
-  failValue: Integer,
+  successValue: Number,
+  failType: Number,
+  failValue: Number,
   keyItemName: String
 });
 
-const EventModel = mongoose.model("Event", Event);
+const EventModel = model("Event", Event);
 
 export default EventModel;

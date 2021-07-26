@@ -1,8 +1,8 @@
 import { Character } from "./character";
 
 export interface Party {
-  partyId: number;
-  party: Character[];
+  leader: Character | null;
+  selectedCharacters: Character[];
   partyStrength: number;
   partyWisdom: number;
   partyHealth: number;

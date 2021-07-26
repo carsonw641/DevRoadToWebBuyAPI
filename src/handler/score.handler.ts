@@ -1,7 +1,7 @@
-import EventModel from "../schema/event.schema";
+import ScoreModel from "../schema/score.schema";
 import Handler from "./handler";
 
-class EventHandler extends Handler {
+class ScoreHandler extends Handler {
   constructor() {
     super();
   }
@@ -9,7 +9,7 @@ class EventHandler extends Handler {
   public async create(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.create(data);
+        const results: any = await ScoreModel.create(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -20,7 +20,7 @@ class EventHandler extends Handler {
   public async update(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.updateOne(data);
+        const results: any = await ScoreModel.updateOne(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -31,7 +31,7 @@ class EventHandler extends Handler {
   public async get(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.find(data);
+        const results: any = await ScoreModel.find(data);
         resolve(results);
       } catch (e) {
         reject(e)
@@ -42,13 +42,24 @@ class EventHandler extends Handler {
   public async delete(data: any): Promise<any> {
     return new Promise<any>(async (resolve: any, reject: any) => {
       try {
-        const results: any = await EventModel.deleteOne(data);
+        const results: any = await ScoreModel.deleteOne(data);
         resolve(results);
       } catch (e) {
         reject(e)
       }
     });
   }
+
+  public async getTopTenScores(): Promise<any> {
+    return new Promise<any>(async (resolve: any, reject: any) => {
+      try {
+        const results: any = await ScoreModel.find().sore({ days: -1 }).limit(10);
+        resolve(results);
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
 }
 
-export default EventHandler;
+export default ScoreHandler;
